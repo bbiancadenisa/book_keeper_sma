@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "182163086745",
+    "project_id": "book-keeper-5bbb5",
+    "storage_bucket": "book-keeper-5bbb5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:182163086745:android:f02f4ad20a525cef1d4708",
+        "android_client_info": {
+          "package_name": "com.example.book_keeper"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmBcU0Os66FoCuplOeTagsu1m4IjMjX-w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

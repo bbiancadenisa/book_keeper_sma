@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/white"
+    tools:context=".SplashActivity">
+
+    <ImageView
+        android:id="@+id/splash_icon"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/main_background"/>
+    
+    <TextView
+        android:id="@+id/splash_app_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="Book - Keeper"
+        android:textFontWeight="600"
+        android:layout_marginTop="20dp"
+        android:padding="10dp"
+        android:textSize="30dp"/>
+
+    <TextView
+        android:id="@+id/splash_app_motto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="Let us worry about organizing"
+        android:textFontWeight="600"
+        android:layout_marginTop="10dp"
+        android:padding="5dp"
+        android:textSize="15dp"/>
+
+    <TextView
+        android:id="@+id/splash_sub_ext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="-You do the reading-"
+        android:textFontWeight="600"
+
+        android:padding="5dp"
+        android:textSize="15dp"/>
+
+
+</LinearLayout>
