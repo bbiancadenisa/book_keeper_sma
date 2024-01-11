@@ -24,6 +24,10 @@ class HomeAdminActivity : AppCompatActivity() {
             checkUser()
         }
 
+        binding.addCategory.setOnClickListener{
+            startActivity(Intent (this, AddCategoryActivity::class.java))
+        }
+
     }
 
     private fun checkUser() {
