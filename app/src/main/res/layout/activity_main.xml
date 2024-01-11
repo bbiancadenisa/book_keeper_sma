@@ -30,7 +30,7 @@
         android:textSize="20dp"/>
 
     <Button
-        android:layout_above="@id/skip_login_btn"
+        android:layout_above="@id/registerBtn"
         android:id="@+id/loginBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -42,7 +42,7 @@
 
     <Button
         android:layout_marginTop="20dp"
-        android:id="@+id/skip_login_btn"
+        android:id="@+id/registerBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/secondary_button"
@@ -50,6 +50,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
         android:layout_alignParentBottom="true"
-        android:text="Continue without Login"/>
+        android:text="Register"/>
 
 </RelativeLayout>
