@@ -18,6 +18,7 @@ class HomeAdminActivity : AppCompatActivity() {
 
         firebaseAuth = FirebaseAuth.getInstance()
         checkUser()
+
         binding.logoutBtn.setOnClickListener {
             firebaseAuth.signOut()
             checkUser()

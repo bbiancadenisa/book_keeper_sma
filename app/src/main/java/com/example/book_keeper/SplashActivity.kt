@@ -29,46 +29,50 @@ import kotlinx.coroutines.launch
 
 class SplashActivity : ComponentActivity() {
 
-    //    private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var firebaseAuth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             R.layout.activity_splash
         }
-//        firebaseAuth = FirebaseAuth.getInstance()
+        firebaseAuth = FirebaseAuth.getInstance()
         Handler().postDelayed(
-            Runnable { startActivity(Intent(this@SplashActivity, MainActivity::class.java)) }, 2000
+            Runnable {
+                startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+//                checkUser()
+            }, 2000
 
         )
     }
-}
 
-//    private fun checkUser() {
-//
-//        val firebaseUser = firebaseAuth.currentUser
-//        if (firebaseUser == null) {
-//            startActivity(Intent(this, MainActivity::class.java))
-//            finish()
-//        } else {
+
+    private fun checkUser() {
+
+        val firebaseUser = firebaseAuth.currentUser
+        if (firebaseUser == null) {
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        } else {
 //            val firebaseUser = firebaseAuth.currentUser!!
-//            val ref = FirebaseDatabase.getInstance().getReference("Users")
-//            ref.child(firebaseUser.uid).addListenerForSingleValueEvent(object : ValueEventListener {
-//                override fun onDataChange(snapshot: DataSnapshot) {
-//
-//                    val userType = snapshot.child("userType").value
-//                    if (userType == "user") {
-//                        startActivity(Intent(this@SplashActivity, HomeUserActivity::class.java))
-//                        finish()
-//                    } else if (userType == "admin") {
-//                        startActivity(Intent(this@SplashActivity, HomeAdminActivity::class.java))
-//                        finish()
-//                    }
-//                }
-//
-//                override fun onCancelled(error: DatabaseError) {
-//                    TODO("Not yet implemented")
-//                }
-//            })
-//        }
+            val ref = FirebaseDatabase.getInstance().getReference("Users")
+            ref.child(firebaseUser.uid).addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val userType = snapshot.child("userType").value
+                    if (userType == "user") {
+                        startActivity(Intent(this@SplashActivity, HomeUserActivity::class.java))
+                        finish()
+                    } else if (userType == "admin") {
+                        startActivity(Intent(this@SplashActivity, HomeAdminActivity::class.java))
+                        finish()
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    TODO("Not yet implemented")
+                }
+            })
+        }
+    }
+}
 
 

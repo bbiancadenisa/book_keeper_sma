@@ -69,10 +69,11 @@ class RegisterActivity : AppCompatActivity() {
 
         firebaseAuth.createUserWithEmailAndPassword(email, password).addOnSuccessListener {
             updateUserInfo()
-        }.addOnFailureListener {
-            progressDialog.dismiss()
-            Toast.makeText(this, "Account creation process failed", Toast.LENGTH_SHORT).show()
         }
+            .addOnFailureListener {
+                progressDialog.dismiss()
+                Toast.makeText(this, "Account creation process failed", Toast.LENGTH_SHORT).show()
+            }
     }
 
     private fun updateUserInfo() {
@@ -83,13 +84,16 @@ class RegisterActivity : AppCompatActivity() {
         val hashMap: HashMap<String, Any?> = HashMap()
         hashMap["uid"] = uid
         hashMap["email"] = email
-        hashMap["passsword"] = password
+        hashMap["name"] = name
+        hashMap["password"] = password
         hashMap["profileImage"] = ""
         hashMap["userType"] = "user"
-        hashMap[""] = timestamp
+//        hashMap[""] = timestamp
 
         val ref = FirebaseDatabase.getInstance().getReference("Users")
-        ref.child(uid!!).setValue(hashMap).addOnSuccessListener {
+        ref.child(uid!!).
+        setValue(hashMap)
+            .addOnSuccessListener {
             progressDialog.dismiss()
             Toast.makeText(
                 this,
@@ -97,14 +101,14 @@ class RegisterActivity : AppCompatActivity() {
                 Toast.LENGTH_SHORT
 
             ).show()
-
             startActivity(
-                Intent(this@RegisterActivity, HomeUserActivity:: class.java)
+                Intent(this@RegisterActivity, HomeUserActivity::class.java)
             )
             finish()
-        }.addOnFailureListener {e ->
+        }.addOnFailureListener { e ->
             progressDialog.dismiss()
-            Toast.makeText(this, "Account creation process failed ${e.message}", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Account creation process failed ${e.message}", Toast.LENGTH_SHORT)
+                .show()
         }
     }
 }

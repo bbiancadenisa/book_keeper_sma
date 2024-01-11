@@ -4,6 +4,7 @@ import android.app.ProgressDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.util.Patterns
 import android.widget.Toast
 import androidx.compose.runtime.snapshots.Snapshot
@@ -32,6 +33,7 @@ class LoginActivity : AppCompatActivity() {
         progressDialog = ProgressDialog(this)
         progressDialog.setTitle("This might take a second")
         progressDialog.setCanceledOnTouchOutside(false)
+
         binding.registerBackBtn.setOnClickListener {
             onBackPressed()
         }
@@ -80,13 +82,21 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun checkUser() {
+        progressDialog.setMessage("Checking User")
+
         val firebaseUser = firebaseAuth.currentUser!!
         val ref = FirebaseDatabase.getInstance().getReference("Users")
-        ref.child(firebaseUser.uid).addListenerForSingleValueEvent(object : ValueEventListener{
+
+        ref.child(firebaseUser.uid).addListenerForSingleValueEvent(object : ValueEventListener
+        {
             override fun onDataChange(snapshot: DataSnapshot) {
                 progressDialog.dismiss()
+                print(firebaseUser)
                 val userType = snapshot.child("userType").value
+                Log.d("ADebugTag", userType.toString());
+
                 if(userType == "user"){
+
                     startActivity(Intent(this@LoginActivity, HomeUserActivity::class.java))
                     finish()
                 }
@@ -100,5 +110,6 @@ class LoginActivity : AppCompatActivity() {
                 TODO("Not yet implemented")
             }
         })
+
     }
 }

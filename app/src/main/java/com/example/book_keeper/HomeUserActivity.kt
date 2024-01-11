@@ -20,7 +20,8 @@ class HomeUserActivity : AppCompatActivity() {
 
         binding.logoutBtn.setOnClickListener {
             firebaseAuth.signOut()
-            checkUser()
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
         }
     }
 
@@ -31,8 +32,10 @@ class HomeUserActivity : AppCompatActivity() {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         } else {
-            val userName = firebaseUser.displayName
-            binding.toolbarEmail.text = userName
+
+
+            val email = firebaseUser.email
+            binding.toolbarEmail.text = email
         }
     }
 }
