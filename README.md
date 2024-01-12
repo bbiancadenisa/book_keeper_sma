@@ -1,3 +1,5 @@
+PLEASE SWITCH TO MAIN BRANCH
+
 Book Keeper Android Library Manager
 Welcome to Book Keeper, your go-to Android application for managing your personal library online. This Kotlin project, developed in Android Studio, empowers users to organize their book collection efficiently. With distinct user roles – Admin and User – Book Keeper offers a seamless experience for both managing and exploring your favorite reads.
 
