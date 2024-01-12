@@ -15,12 +15,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.loginBtn.setOnClickListener {
-            //urmeste
             startActivity(Intent(this, LoginActivity::class.java))
         }
 
         binding.registerBtn.setOnClickListener {
-            //urmeste
             startActivity(Intent(this, RegisterActivity::class.java))
         }
     }
