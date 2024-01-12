@@ -60,16 +60,21 @@
         android:textColor="@color/black"
         android:textColorHint="@color/gray"
         android:layout_below="@+id/toolbar_admin"/>
-    
+
+    <!--Categories-->
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/categoriesRv"
-        android:layout_below="@+id/searchAdmin"
-        android:layout_above="@+id/bottom_admin_home"
-        android:layout_margin="5dp"
-        tools:listitem="@layout/category_row"
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_admin_home"
+        android:layout_below="@+id/searchAdmin"
+        android:layout_margin="5dp"
+        android:layout_marginTop="59dp"
+        android:layout_marginBottom="-49dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        android:layout_height="match_parent"/>
+        tools:listitem="@layout/category_row" />
 
     <LinearLayout
         android:id="@+id/bottom_admin_home"
