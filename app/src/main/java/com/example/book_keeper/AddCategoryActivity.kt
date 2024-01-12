@@ -46,23 +46,24 @@ class AddCategoryActivity : AppCompatActivity() {
     private fun addCategory() {
 
         progressDialog.show()
-        val id = "${
-            category + category.length + category.subSequence(1, 2)}"
-
+//        val ref = FirebaseDatabase.getInstance().getReference("Categories")
+        val timestamp = System.currentTimeMillis().toString()
         val hashMap = HashMap<String, Any>()
-        hashMap["id"] = id
+        hashMap["id"] = timestamp
         hashMap["category"] = category
         hashMap["uid"] = "${firebaseAuth.uid}"
 
 
-        val ref = FirebaseDatabase.getInstance().getReference("Categories")
-        ref.child("id").setValue(hashMap)
-            .addOnSuccessListener { progressDialog.dismiss()
+val ref = FirebaseDatabase.getInstance().getReference("Categories")
+        ref.child(timestamp).setValue(hashMap)
+            .addOnSuccessListener {
+                progressDialog.dismiss()
                 Toast.makeText(this, "Category added successfully", Toast.LENGTH_SHORT).show()
-            }.addOnFailureListener{
+            }.addOnFailureListener {
                 progressDialog.dismiss()
                 Toast.makeText(this, "Please add a valid value", Toast.LENGTH_SHORT).show()
             }
+
 
     }
 }
