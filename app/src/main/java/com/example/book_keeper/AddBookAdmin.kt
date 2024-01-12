@@ -148,6 +148,7 @@ class AddBookAdmin : AppCompatActivity() {
         hashMap["author"] = "$author"
         hashMap["description"] = "$description"
         hashMap["categoryId"] = "$selectedCategoryId"
+        hashMap["category"] = "$selectedCategoryTitle"
 
         val ref = FirebaseDatabase.getInstance().getReference(("Books"))
         ref.child("$timestamp")
