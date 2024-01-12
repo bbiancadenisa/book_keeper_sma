@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeAdminActivity">
+    android:background="@color/white"
+    tools:context=".BookListAdminActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -25,7 +26,7 @@
 
         <TextView
             android:id="@+id/toolbar_email"
-            android:text="Welcome - Home"
+            android:text="Book List"
             android:textColor="@color/white"
             android:textSize="15dp"
             android:layout_below="@id/app_name_home"
@@ -44,9 +45,7 @@
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="10dp"/>
 
-
     </RelativeLayout>
-    
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -62,70 +61,16 @@
         android:textColorHint="@color/gray"
         android:layout_below="@+id/toolbar_admin"/>
 
-    <!--Categories-->
-
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/categoriesRv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/bottom_admin_home"
         android:layout_below="@+id/searchAdmin"
         android:layout_margin="5dp"
         android:layout_marginTop="59dp"
         android:layout_marginBottom="-49dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/category_row" />
-
-    <LinearLayout
-        android:id="@+id/bottom_admin_home"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_alignParentBottom="true"
-        >
-
-        <Button
-            android:id="@+id/viewBooks"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/secondary_button"
-            android:text="View Books"
-            android:textAllCaps="false"
-            android:textColor="@color/mainPink"
-            android:textSize="20dp"
-            android:minHeight="50dp"/>
-
-        <Button
-            android:id="@+id/addCategory"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/main_button"
-            android:text="Add Category"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="20dp"
-            android:minHeight="50dp"/>
-
-        <Button
-            android:id="@+id/addBook"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/secondary_button"
-            android:text="Add Book"
-            android:textAllCaps="false"
-            android:textColor="@color/mainPink"
-            android:textSize="20dp"
-            android:minHeight="50dp"/>
-
-    </LinearLayout>
-
+        tools:listitem="@layout/book_row" />
 
 
 </RelativeLayout>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="140dp"
+
+    android:layout_marginBottom="5dp"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="0dp"
+    app:contentPadding="5dp">
+
+    <RelativeLayout
+        android:id="@+id/bookView"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/main_button"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/bookTitle"
+            style="@style/TextAppearance.MaterialComponents.Headline1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Book Title"
+            android:textFontWeight="700"
+            android:textSize="24dp" />
+
+        <TextView
+            android:id="@+id/bookDescription"
+            style="@style/TextAppearance.MaterialComponents.Body2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/bookTitle"
+            android:text="Book Description"
+            android:textColor="@color/gray"
+            android:textFontWeight="700"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/bookCategory"
+            style="@style/TextAppearance.MaterialComponents.Body2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bookTitle"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:text="Book Category"
+            android:textColor="@color/gray"
+            android:textFontWeight="700"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/bookAuthor"
+            style="@style/TextAppearance.MaterialComponents.Body2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="65dp"
+            android:text="Book Author"
+            android:textColor="@color/white"
+            android:textFontWeight="700"
+            android:textSize="10dp" />
+
+        <ImageButton
+            android:id="@+id/deleteBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_delete" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
