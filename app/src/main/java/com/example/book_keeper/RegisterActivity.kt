@@ -41,11 +41,14 @@ class RegisterActivity : AppCompatActivity() {
     private var password = ""
 
     private fun validateData() {
+        //get user inout adn validate it
+
         name = binding.name2.text.toString().trim()
         email = binding.email2.text.toString().trim()
         password = binding.password2.text.toString().trim()
         val confirm_password = binding.confirmPassword2.text.toString().trim()
 
+        //check for format f email address, for password and confirm password that match, for empty fields etc
         if (name.isEmpty()) {
             Toast.makeText(this, "Please enter name", Toast.LENGTH_SHORT).show()
         } else if (email.isEmpty()) {
@@ -63,6 +66,7 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
+    //add the user to the database
     private fun createUserAccount() {
         progressDialog.setMessage("Creating account")
         progressDialog.show()
@@ -88,27 +92,23 @@ class RegisterActivity : AppCompatActivity() {
         hashMap["password"] = password
         hashMap["profileImage"] = ""
         hashMap["userType"] = "user"
-//        hashMap[""] = timestamp
 
         val ref = FirebaseDatabase.getInstance().getReference("Users")
-        ref.child(uid!!).
-        setValue(hashMap)
+        ref.child(uid!!).setValue(hashMap)
             .addOnSuccessListener {
-            progressDialog.dismiss()
-            Toast.makeText(
-                this,
-                "Account created successfully",
-                Toast.LENGTH_SHORT
-
-            ).show()
-            startActivity(
-                Intent(this@RegisterActivity, HomeUserActivity::class.java)
-            )
-            finish()
-        }.addOnFailureListener { e ->
-            progressDialog.dismiss()
-            Toast.makeText(this, "Account creation process failed ${e.message}", Toast.LENGTH_SHORT)
-                .show()
-        }
+                progressDialog.dismiss()
+                Toast.makeText(this, "Account created successfully", Toast.LENGTH_SHORT).show()
+                startActivity(
+                    Intent(this@RegisterActivity, HomeUserActivity::class.java)
+                )
+                finish()
+            }.addOnFailureListener { e ->
+                progressDialog.dismiss()
+                Toast.makeText(
+                    this,
+                    "Account creation process failed ${e.message}",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
     }
 }

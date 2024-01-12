@@ -14,11 +14,9 @@ class ViewBooksAdminActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityViewBooksAdminBinding
     private lateinit var firebaseAuth: FirebaseAuth
-
     private lateinit var booksArrayList: ArrayList<ModelBook>
 
     //adapter
-
     private lateinit var adapterBooks: AdapterBooksAdmin
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,8 +24,9 @@ class ViewBooksAdminActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         firebaseAuth = FirebaseAuth.getInstance()
-        loadBooks()
 
+        // get the books from database
+        loadBooks()
 
         binding.backViewButton.setOnClickListener {
             onBackPressed()
@@ -35,8 +34,7 @@ class ViewBooksAdminActivity : AppCompatActivity() {
 
     }
     private fun loadBooks() {
-
-        //initi arraylist
+        //init arraylist
         booksArrayList = ArrayList()
         val ref = FirebaseDatabase.getInstance().getReference("Books")
         ref.addValueEventListener(object : ValueEventListener {
@@ -49,13 +47,11 @@ class ViewBooksAdminActivity : AppCompatActivity() {
                 adapterBooks = AdapterBooksAdmin(this@ViewBooksAdminActivity, booksArrayList)
 
                 //set adapter
-
                 binding.booksRv.adapter = adapterBooks
 
             }
-
             override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
+                // will follow
             }
         })
 

@@ -16,21 +16,17 @@ import com.google.firebase.database.ValueEventListener
 
 class AdapterBooksAdmin : RecyclerView.Adapter<AdapterBooksAdmin.HolderBooksAdmin> {
 
-
     private val context: Context
-    public var bookArrayList: ArrayList<ModelBook>
     private var filterList: ArrayList<ModelBook>
-
     private var filter: FilterBooks? = null
-
     private lateinit var binding: BookRowBinding
+    public var bookArrayList: ArrayList<ModelBook>
 
     constructor(context: Context, bookList: ArrayList<ModelBook>) {
         this.context = context
         this.bookArrayList = bookList
         this.filterList = bookArrayList
     }
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HolderBooksAdmin {
         binding = BookRowBinding.inflate(LayoutInflater.from(context), parent, false)
@@ -41,6 +37,7 @@ class AdapterBooksAdmin : RecyclerView.Adapter<AdapterBooksAdmin.HolderBooksAdmi
         return bookArrayList.size
     }
 
+    //getting and setting the values for the books
     override fun onBindViewHolder(holder: HolderBooksAdmin, position: Int) {
         val model = bookArrayList[position]
         val bookId = model.id
@@ -58,43 +55,27 @@ class AdapterBooksAdmin : RecyclerView.Adapter<AdapterBooksAdmin.HolderBooksAdmi
             builder.setTitle("Delete")
                 .setMessage("Are you sure you want to delete this book?")
                 .setPositiveButton("Confirm") { a, d ->
-                    Toast.makeText(
-                        context,
-                        "Deleting",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    Toast.makeText(context, "Deleting", Toast.LENGTH_SHORT).show()
                     deleteBook(model, holder)
                 }
-                .setNegativeButton("Cancel") { a, d ->
-                    a.dismiss()
-                }
-                .show()
+                .setNegativeButton("Cancel") { a, d -> a.dismiss() }.show()
         }
-
-
     }
 
+    //delete books
     private fun deleteBook(model: ModelBook, holder: AdapterBooksAdmin.HolderBooksAdmin) {
         val id = model.id
+        //removing the books from tge database, using the id
         val ref = FirebaseDatabase.getInstance()
             .getReference("Books")
         ref.child(id).removeValue()
             .addOnSuccessListener {
-                Toast.makeText(
-                    context,
-                    "Book deleted",
-                    Toast.LENGTH_SHORT
-                ).show()
+                Toast.makeText(context, "Book deleted", Toast.LENGTH_SHORT).show()
             }.addOnFailureListener { e ->
-                Toast.makeText(
-                    context,
-                    "Book could not be deleted",
-                    Toast.LENGTH_SHORT
-                ).show()
+                Toast.makeText(context, "Book could not be deleted", Toast.LENGTH_SHORT).show()
             }
 
     }
-
     inner class HolderBooksAdmin(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val bookView = binding.bookView
         val titleView = binding.bookTitle

@@ -19,9 +19,7 @@ import com.google.firebase.database.ValueEventListener
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
-
     private lateinit var firebaseAuth: FirebaseAuth
-
     private lateinit var progressDialog: ProgressDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,19 +32,17 @@ class LoginActivity : AppCompatActivity() {
         progressDialog.setTitle("This might take a second")
         progressDialog.setCanceledOnTouchOutside(false)
 
+        //go back
         binding.registerBackBtn.setOnClickListener {
             onBackPressed()
         }
 
+        // go to register
         binding.noAccount.setOnClickListener {
-            startActivity(
-                Intent(
-                    this,
-                    RegisterActivity::class.java
-                )
-            )
+            startActivity(Intent(this, RegisterActivity::class.java))
         }
 
+        //validate user inputs
         binding.loginBtn.setOnClickListener {
             validateData()
         }
@@ -59,6 +55,7 @@ class LoginActivity : AppCompatActivity() {
         email = binding.email2.text.toString().trim()
         password = binding.password2.text.toString().trim()
 
+        // Check if email/password are empty
         if (email.isEmpty()) {
             Toast.makeText(this, "Please enter password", Toast.LENGTH_SHORT).show()
         } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
@@ -87,27 +84,25 @@ class LoginActivity : AppCompatActivity() {
         val firebaseUser = firebaseAuth.currentUser!!
         val ref = FirebaseDatabase.getInstance().getReference("Users")
 
-        ref.child(firebaseUser.uid).addListenerForSingleValueEvent(object : ValueEventListener
-        {
+        ref.child(firebaseUser.uid).addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 progressDialog.dismiss()
                 print(firebaseUser)
                 val userType = snapshot.child("userType").value
                 Log.d("ADebugTag", userType.toString());
 
-                if(userType == "user"){
-
+                // Start different activities based on userType
+                if (userType == "user") {
                     startActivity(Intent(this@LoginActivity, HomeUserActivity::class.java))
                     finish()
-                }
-                else if(userType == "admin"){
+                } else if (userType == "admin") {
                     startActivity(Intent(this@LoginActivity, HomeAdminActivity::class.java))
                     finish()
                 }
             }
 
             override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
+               // will follow
             }
         })
 

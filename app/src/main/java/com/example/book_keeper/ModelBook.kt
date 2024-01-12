@@ -24,6 +24,4 @@ class ModelBook {
         this.description = description
         this.category = category
     }
-
-
 }

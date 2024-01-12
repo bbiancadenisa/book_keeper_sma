@@ -8,9 +8,9 @@
     tools:context=".AddBookActivity">
 
     <RelativeLayout
+        android:id="@+id/toolbarAddCategory"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:id="@+id/toolbarAddCategory"
         android:background="@drawable/toolbar">
 
         <ImageButton
@@ -29,22 +29,22 @@
             android:id="@+id/main_icon"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
             android:src="@drawable/main_background" />
 
         <TextView
             android:id="@+id/addCategoryText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:text="Add Book"
-            android:layout_centerHorizontal="true"
-            android:textFontWeight="700"
             android:layout_below="@+id/main_icon"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:padding="5dp"
-            android:textSize="20dp"/>
+            android:text="Add Book"
+            android:textColor="@color/white"
+            android:textFontWeight="700"
+            android:textSize="20dp" />
 
     </RelativeLayout>
 
@@ -52,8 +52,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
         android:layout_marginTop="230dp"
+        android:layout_marginEnd="30dp"
         app:hintEnabled="false">
         <EditText
             android:id="@+id/bookTitle"
@@ -66,15 +66,15 @@
             android:inputType="textPersonName"
             android:padding="10dp"
             android:textColor="@color/black"
-            android:textColorHint="@color/gray"/>
+            android:textColorHint="@color/gray" />
     </com.google.android.material.textfield.TextInputLayout>
+
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-
         android:layout_marginTop="290dp"
+        android:layout_marginEnd="30dp"
         app:hintEnabled="false">
         <EditText
             android:id="@+id/bookAuthor"
@@ -87,15 +87,17 @@
             android:inputType="textPersonName"
             android:padding="10dp"
             android:textColor="@color/black"
-            android:textColorHint="@color/gray"/>
+            android:textColorHint="@color/gray" />
     </com.google.android.material.textfield.TextInputLayout>
+
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
         android:layout_marginTop="345dp"
+        android:layout_marginEnd="30dp"
         app:hintEnabled="false">
+
         <EditText
             android:id="@+id/bookDescription"
             android:layout_width="match_parent"
@@ -107,41 +109,40 @@
             android:inputType="textPersonName"
             android:padding="10dp"
             android:textColor="@color/black"
-            android:textColorHint="@color/gray"/>
+            android:textColorHint="@color/gray" />
     </com.google.android.material.textfield.TextInputLayout>
-
 
     <TextView
         android:id="@+id/categoryTv"
         android:layout_width="350dp"
-        android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="405dp"
         android:layout_marginEnd="30dp"
-        android:drawableEnd="@drawable/ic_down_arrow"
-        android:drawableStart="@drawable/toolbar"
-        android:drawablePadding="10dp"
-        android:padding="10dp"
-        android:hint="Book Category"
-        android:gravity="center_vertical"
         android:background="@drawable/edit_text1"
-        android:textColorHint="@color/gray"
+        android:drawableStart="@drawable/toolbar"
+        android:drawableEnd="@drawable/ic_down_arrow"
+        android:drawablePadding="10dp"
+        android:gravity="center_vertical"
+        android:hint="Book Category"
+        android:padding="10dp"
         android:textColor="@color/black"
-        android:textSize="16dp"/>
+        android:textColorHint="@color/gray"
+        android:textSize="16dp" />
 
     <Button
         android:id="@+id/addBookButton"
         android:layout_width="350dp"
-        android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="150dp"
         android:layout_weight="1"
         android:background="@drawable/main_button"
         android:minHeight="50dp"
         android:text="Add Book"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:layout_marginBottom="150dp"
         android:textSize="20dp" />
 
 </RelativeLayout>

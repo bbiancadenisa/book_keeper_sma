@@ -10,9 +10,7 @@ import com.google.firebase.database.FirebaseDatabase
 
 class AddCategoryActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAddCategoryBinding
-
     private lateinit var firebaseAuth: FirebaseAuth
-
     private lateinit var progressDialog: ProgressDialog
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,10 +20,12 @@ class AddCategoryActivity : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
         progressDialog = ProgressDialog(this)
 
+        //handle back click
         binding.backAddButton.setOnClickListener {
             onBackPressed()
         }
 
+        //handle add category button
         binding.addCategoryBtn.setOnClickListener {
             validateData()
         }
@@ -33,7 +33,7 @@ class AddCategoryActivity : AppCompatActivity() {
 
 
     private var category = ""
-
+    //validating the category field
     private fun validateData() {
         category = binding.categoryName.text.toString().trim()
         if (category.isEmpty()) {
@@ -44,17 +44,18 @@ class AddCategoryActivity : AppCompatActivity() {
     }
 
     private fun addCategory() {
-
         progressDialog.show()
-//        val ref = FirebaseDatabase.getInstance().getReference("Categories")
+
+        //Getting the data
         val timestamp = System.currentTimeMillis().toString()
         val hashMap = HashMap<String, Any>()
         hashMap["id"] = timestamp
         hashMap["category"] = category
         hashMap["uid"] = "${firebaseAuth.uid}"
 
-
-val ref = FirebaseDatabase.getInstance().getReference("Categories")
+        // Setting the values
+        // Creating a ref to Categories
+        val ref = FirebaseDatabase.getInstance().getReference("Categories")
         ref.child(timestamp).setValue(hashMap)
             .addOnSuccessListener {
                 progressDialog.dismiss()
