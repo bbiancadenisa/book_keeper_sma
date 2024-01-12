@@ -85,7 +85,6 @@
         android:layout_marginEnd="10dp"
         android:layout_marginStart="10dp"
         android:layout_alignParentBottom="true"
-
         >
 
         <Button
@@ -99,6 +98,21 @@
             android:textColor="@color/white"
             android:textSize="20dp"
             android:minHeight="50dp"/>
+
+        <Button
+            android:id="@+id/addBook"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/secondary_button"
+            android:text="Add Book"
+            android:textAllCaps="false"
+            android:textColor="@color/mainPink"
+            android:textSize="20dp"
+            android:minHeight="50dp"/>
+
     </LinearLayout>
+
+
 
 </RelativeLayout>

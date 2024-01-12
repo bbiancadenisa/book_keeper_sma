@@ -65,6 +65,10 @@ class HomeAdminActivity : AppCompatActivity() {
             startActivity(Intent(this, AddCategoryActivity::class.java))
         }
 
+        binding.addBook.setOnClickListener {
+            startActivity(Intent(this, AddBookAdmin::class.java))
+        }
+
     }
 
     private fun checkUser() {
