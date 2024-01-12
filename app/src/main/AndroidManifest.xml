@@ -14,6 +14,9 @@
         android:theme="@style/Theme.AppCompat.Light"
         tools:targetApi="31">
         <activity
+            android:name=".ViewFavouritesActivity"
+            android:exported="false" />
+        <activity
             android:name=".ViewBooksAdminActivity"
             android:exported="false" />
         <activity

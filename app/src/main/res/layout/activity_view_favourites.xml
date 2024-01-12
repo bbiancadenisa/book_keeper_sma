@@ -4,17 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeUserActivity">
+    android:background="@color/white"
+    tools:context=".BookListAdminActivity">
 
     <RelativeLayout
-        android:id="@+id/toolbarUser"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
+        android:id="@+id/toolbarUser"
         android:background="@drawable/toolbar2">
 
+        <ImageButton
+            android:id="@+id/backFavoritesBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@android:color/transparent"
+            android:padding="10dp"
+            android:src="@drawable/ic_back_arrow" />
         <TextView
             android:id="@+id/app_name_home"
-            android:text="Book - Keeper"
+            android:text="Favorites Books"
             android:layout_centerHorizontal="true"
             android:textColor="@color/white"
             android:textSize="20dp"
@@ -24,7 +33,7 @@
 
         <TextView
             android:id="@+id/toolbar_email"
-            android:text="Welcome - Home"
+            android:text="Book List"
             android:textColor="@color/white"
             android:textSize="15dp"
             android:layout_below="@id/app_name_home"
@@ -33,51 +42,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
-        <ImageButton
-            android:id="@+id/logout_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:src="@drawable/ic_logout"
-            android:background="@android:color/transparent"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="10dp"/>
 
     </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/booksRv"
+        android:id="@+id/favoriteRv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/toolbarUser"
         android:layout_margin="5dp"
         android:layout_marginTop="59dp"
         android:layout_marginBottom="-49dp"
-        tools:listitem="@layout/book_row_user"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        />
+        tools:listitem="@layout/book_row_user" />
 
-    <LinearLayout
-        android:id="@+id/bottom_admin_home"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_alignParentBottom="true"
-        >
-        <Button
-            android:id="@+id/viewFavorites"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/main_button"
-            android:text="View Favorites"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="20dp"
-            android:minHeight="50dp"/>
-    </LinearLayout>
 
 </RelativeLayout>
