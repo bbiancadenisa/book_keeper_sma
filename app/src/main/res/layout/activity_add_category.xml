@@ -8,9 +8,9 @@
     tools:context=".AddCategoryActivity">
 
     <RelativeLayout
+        android:id="@+id/toolbarAddCategory"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:id="@+id/toolbarAddCategory"
         android:background="@drawable/toolbar">
 
         <ImageButton
@@ -29,22 +29,22 @@
             android:id="@+id/main_icon"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
             android:src="@drawable/main_background" />
 
         <TextView
             android:id="@+id/addCategoryText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:text="Add Category"
-            android:layout_centerHorizontal="true"
-            android:textFontWeight="700"
             android:layout_below="@+id/main_icon"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:padding="5dp"
-            android:textSize="20dp"/>
+            android:text="Add Category"
+            android:textColor="@color/white"
+            android:textFontWeight="700"
+            android:textSize="20dp" />
 
     </RelativeLayout>
 
@@ -52,8 +52,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
         android:layout_marginTop="230dp"
+        android:layout_marginEnd="30dp"
         app:hintEnabled="false">
 
         <EditText
@@ -67,7 +67,7 @@
             android:inputType="textPersonName"
             android:padding="10dp"
             android:textColor="@color/black"
-            android:textColorHint="@color/gray"/>
+            android:textColorHint="@color/gray" />
 
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -75,16 +75,16 @@
     <Button
         android:id="@+id/addCategoryBtn"
         android:layout_width="350dp"
-        android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="360dp"
         android:layout_weight="1"
         android:background="@drawable/main_button"
         android:minHeight="50dp"
         android:text="Add Category"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:layout_marginBottom="360dp"
         android:textSize="20dp" />
 
 

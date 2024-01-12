@@ -9,6 +9,5 @@ class MyApplication: Application() {
     }
 
     companion object{
-
     }
 }

@@ -32,28 +32,25 @@ class SplashActivity : ComponentActivity() {
     private lateinit var firebaseAuth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent {
-            R.layout.activity_splash
-        }
+        setContent { R.layout.activity_splash }
         firebaseAuth = FirebaseAuth.getInstance()
+        //display the splash screen for 2 seconds before going to main activity page
         Handler().postDelayed(
             Runnable {
                 startActivity(Intent(this@SplashActivity, MainActivity::class.java))
-//                checkUser()
             }, 2000
 
         )
     }
 
 
+    // function for checking if the user is logged in
     private fun checkUser() {
-
         val firebaseUser = firebaseAuth.currentUser
         if (firebaseUser == null) {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         } else {
-//            val firebaseUser = firebaseAuth.currentUser!!
             val ref = FirebaseDatabase.getInstance().getReference("Users")
             ref.child(firebaseUser.uid).addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
@@ -66,9 +63,8 @@ class SplashActivity : ComponentActivity() {
                         finish()
                     }
                 }
-
                 override fun onCancelled(error: DatabaseError) {
-                    TODO("Not yet implemented")
+                   // will follow
                 }
             })
         }

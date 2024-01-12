@@ -5,13 +5,10 @@ import android.widget.Filter
 class FilterCategory : Filter {
 
     private val filterList: ArrayList<ModelCategory>
-
     // adapter to filter categories
+
     private var adapterCategory: AdapterCategory
-
     //constructor
-
-
     constructor(filterList: ArrayList<ModelCategory>, adapterCategory: AdapterCategory) : super() {
         this.filterList = filterList
         this.adapterCategory = adapterCategory
@@ -22,15 +19,12 @@ class FilterCategory : Filter {
         val results = FilterResults()
 
         // value should not be null and not empty
-
         if (constraint != null && constraint.isNotEmpty()) {
             //serach value is nor null nor empty
             //change to upper case or lower case
-
             constraint = constraint.toString().uppercase()
 
             val filteredModels :ArrayList<ModelCategory> = ArrayList()
-
             for(i in 0 until filterList.size){
                 //validate
                 if(filterList[i].category.uppercase().contains(constraint)) {
@@ -43,22 +37,17 @@ class FilterCategory : Filter {
             results.values = filteredModels
         }
         else{
-            //serahc value is null or empty
+            //search value is null or empty
             results.count = filterList.size
             results.values= filterList
         }
-
         return results
     }
 
     override fun publishResults(constraint: CharSequence?, results: FilterResults) {
-        // apply filteer changes
+        // apply filter changes
         adapterCategory.categoryArrayList = results.values as ArrayList<ModelCategory>
-
         //notify changes
-
         adapterCategory.notifyDataSetChanged()
     }
-
-
 }

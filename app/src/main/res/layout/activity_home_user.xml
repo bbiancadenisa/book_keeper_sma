@@ -14,34 +14,34 @@
 
         <TextView
             android:id="@+id/app_name_home"
-            android:text="Book - Keeper"
-            android:layout_centerHorizontal="true"
-            android:textColor="@color/white"
-            android:textSize="20dp"
-            android:textFontWeight="600"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Book - Keeper"
+            android:textColor="@color/white"
+            android:textFontWeight="600"
+            android:textSize="20dp" />
 
         <TextView
             android:id="@+id/toolbar_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/app_name_home"
+            android:layout_centerHorizontal="true"
             android:text="Welcome - Home"
             android:textColor="@color/white"
-            android:textSize="15dp"
-            android:layout_below="@id/app_name_home"
             android:textFontWeight="500"
-            android:layout_centerHorizontal="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:textSize="15dp" />
 
         <ImageButton
             android:id="@+id/logout_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:src="@drawable/ic_logout"
-            android:background="@android:color/transparent"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="10dp"/>
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_logout" />
 
     </RelativeLayout>
 
@@ -53,31 +53,30 @@
         android:layout_margin="5dp"
         android:layout_marginTop="59dp"
         android:layout_marginBottom="-49dp"
-        tools:listitem="@layout/book_row_user"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        />
+        tools:listitem="@layout/book_row_user" />
 
     <LinearLayout
         android:id="@+id/bottom_admin_home"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginStart="10dp"
         android:layout_alignParentBottom="true"
-        >
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
+
         <Button
             android:id="@+id/viewFavorites"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/main_button"
+            android:minHeight="50dp"
             android:text="View Favorites"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="20dp"
-            android:minHeight="50dp"/>
+            android:textSize="20dp" />
     </LinearLayout>
 
 </RelativeLayout>

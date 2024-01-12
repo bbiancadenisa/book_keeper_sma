@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:background="@drawable/toolbar">
+
         <ImageButton
             android:id="@+id/register_back_btn"
             android:layout_width="wrap_content"
@@ -80,7 +81,7 @@
                     android:inputType="textEmailAddress"
                     android:padding="10dp"
                     android:textColor="@color/black"
-                    android:textColorHint="@color/gray" />/>
+                    android:textColorHint="@color/gray" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout

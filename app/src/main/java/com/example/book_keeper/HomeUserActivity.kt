@@ -14,7 +14,6 @@ import com.google.firebase.database.ValueEventListener
 class HomeUserActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeUserBinding
     private lateinit var firebaseAuth: FirebaseAuth
-
     private lateinit var booksArrayList: ArrayList<ModelBook>
     private lateinit var adapterBooks: AdapterBooksAdmin
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,27 +35,21 @@ class HomeUserActivity : AppCompatActivity() {
             startActivity(Intent(this, ViewFavouritesActivity::class.java))
             finish()
         }
-
-
     }
 
     private fun checkUser() {
-
         val firebaseUser = firebaseAuth.currentUser
         if (firebaseUser == null) {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         } else {
-
-
             val email = firebaseUser.email
             binding.toolbarEmail.text = email
         }
     }
 
     private fun loadBooks() {
-
-        //initi arraylist
+        //init arraylist
         booksArrayList = ArrayList()
         val ref = FirebaseDatabase.getInstance().getReference("Books")
         ref.addValueEventListener(object : ValueEventListener {
@@ -69,13 +62,11 @@ class HomeUserActivity : AppCompatActivity() {
                 adapterBooks = AdapterBooksAdmin(this@HomeUserActivity, booksArrayList)
 
                 //set adapter
-
                 binding.booksRv.adapter = adapterBooks
 
             }
-
             override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
+                //will follow
             }
         })
 

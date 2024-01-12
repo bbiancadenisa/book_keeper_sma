@@ -16,8 +16,7 @@ class ViewFavouritesActivity : AppCompatActivity() {
         binding = ActivityViewFavouritesBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-        binding.backFavoritesBtn.setOnClickListener{
+        binding.backBtnFavoriteView.setOnClickListener {
             onBackPressed()
         }
     }

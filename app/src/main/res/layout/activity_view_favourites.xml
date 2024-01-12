@@ -5,42 +5,43 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".BookListAdminActivity">
+    tools:context=".ViewFavouritesActivity">
 
     <RelativeLayout
+        android:id="@+id/toolbarUser"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        android:id="@+id/toolbarUser"
         android:background="@drawable/toolbar2">
 
         <ImageButton
-            android:id="@+id/backFavoritesBtn"
+            android:id="@+id/backBtnFavoriteView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="@android:color/transparent"
             android:padding="10dp"
             android:src="@drawable/ic_back_arrow" />
+
         <TextView
             android:id="@+id/app_name_home"
-            android:text="Favorites Books"
-            android:layout_centerHorizontal="true"
-            android:textColor="@color/white"
-            android:textSize="20dp"
-            android:textFontWeight="600"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Favorites Books"
+            android:textColor="@color/white"
+            android:textFontWeight="600"
+            android:textSize="20dp" />
 
         <TextView
             android:id="@+id/toolbar_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/app_name_home"
+            android:layout_centerHorizontal="true"
             android:text="Book List"
             android:textColor="@color/white"
-            android:textSize="15dp"
-            android:layout_below="@id/app_name_home"
             android:textFontWeight="500"
-            android:layout_centerHorizontal="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:textSize="15dp" />
 
 
     </RelativeLayout>

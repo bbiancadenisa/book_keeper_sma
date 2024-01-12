@@ -18,11 +18,9 @@ class HomeAdminActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeAdminBinding
     private lateinit var firebaseAuth: FirebaseAuth
-
     private lateinit var categoryArrayList: ArrayList<ModelCategory>
 
     //adapter
-
     private lateinit var adapterCategory: AdapterCategory
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,24 +33,20 @@ class HomeAdminActivity : AppCompatActivity() {
         loadCategories()
 
         // search
-
         binding.searchAdmin.addTextChangedListener(object : TextWatcher {
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-
+                //will follow
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 try {
                     adapterCategory.filter.filter(s)
-
-                } catch (e: Exception) {
-
-                }
+                } catch (e: Exception) { }
             }
 
             override fun afterTextChanged(p0: Editable?) {
-
+                //will follow
             }
         })
 
@@ -89,8 +83,7 @@ class HomeAdminActivity : AppCompatActivity() {
 
     private fun loadCategories() {
 
-        //initi arraylist
-
+        //init arraylist
         categoryArrayList = ArrayList()
         val ref = FirebaseDatabase.getInstance().getReference("Categories")
         ref.addValueEventListener(object : ValueEventListener {
@@ -103,13 +96,11 @@ class HomeAdminActivity : AppCompatActivity() {
                 adapterCategory = AdapterCategory(this@HomeAdminActivity, categoryArrayList)
 
                 //set adapter
-
                 binding.categoriesRv.adapter = adapterCategory
 
             }
-
             override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
+               //will follow
             }
         })
 

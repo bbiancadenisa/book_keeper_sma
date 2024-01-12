@@ -11,6 +11,4 @@ class ModelCategory {
         this.category = category
         this.uid = uid
     }
-
-
 }
