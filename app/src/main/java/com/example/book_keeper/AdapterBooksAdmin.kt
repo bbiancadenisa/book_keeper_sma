@@ -56,7 +56,7 @@ class AdapterBooksAdmin : RecyclerView.Adapter<AdapterBooksAdmin.HolderBooksAdmi
         holder.deleteButton.setOnClickListener {
             val builder = AlertDialog.Builder(context)
             builder.setTitle("Delete")
-                .setMessage("Are you sure you want to delete this category?")
+                .setMessage("Are you sure you want to delete this book?")
                 .setPositiveButton("Confirm") { a, d ->
                     Toast.makeText(
                         context,

@@ -1,7 +1,7 @@
 package com.example.book_keeper
 
 class ModelBook {
-//    var uid: String = ""
+    var uid: String = ""
     var id: String = ""
     var title: String = ""
     var author: String = ""

@@ -29,13 +29,16 @@ class ViewBooksAdminActivity : AppCompatActivity() {
         loadBooks()
 
 
+        binding.backViewButton.setOnClickListener {
+            onBackPressed()
+        }
+
     }
     private fun loadBooks() {
 
         //initi arraylist
-
         booksArrayList = ArrayList()
-        val ref = FirebaseDatabase.getInstance().getReference("Categories")
+        val ref = FirebaseDatabase.getInstance().getReference("Books")
         ref.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 booksArrayList.clear()

@@ -12,6 +12,18 @@
         android:layout_height="?actionBarSize"
         android:background="@drawable/toolbar2">
 
+        <ImageButton
+            android:id="@+id/backViewButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@android:color/transparent"
+            android:padding="10dp"
+            android:src="@drawable/ic_back_arrow" />
+
         <TextView
             android:id="@+id/app_name_home"
             android:layout_width="wrap_content"
@@ -22,15 +34,6 @@
             android:textFontWeight="600"
             android:textSize="20dp" />
 
-        <ImageButton
-            android:id="@+id/logout_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="10dp"
-            android:background="@android:color/transparent"
-            android:src="@drawable/ic_logout" />
 
     </RelativeLayout>
 
